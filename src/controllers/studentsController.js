@@ -11,7 +11,7 @@ export const getStudents = async (req, res) => {
     const students = await getAllStudents();
     res.json(students);
   } catch (error) {
-    console.error(error); // Penting untuk debugging
+    console.error(error);
     res.status(500).json({ message: 'Error retrieving data' });
   }
 };
@@ -68,7 +68,7 @@ export const editStudent = async (req, res) => {
 export const removeStudent = async (req, res) => {
   try {
     const { id } = req.params;
-    await deleteStudent(id); // Asumsi model sudah mengecek dan tidak ada error
+    await deleteStudent(id); 
     res.json({ message: 'Student deleted successfully' });
   } catch (error) {
     console.error(error);
