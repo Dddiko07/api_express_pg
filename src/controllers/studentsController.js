@@ -6,7 +6,6 @@ import {
   deleteStudent,
 } from '../models/studentsModel.js';
 
-// GET /api/students
 export const getStudents = async (req, res) => {
   try {
     const students = await getAllStudents();
@@ -17,7 +16,6 @@ export const getStudents = async (req, res) => {
   }
 };
 
-// GET /api/students/:id
 export const getStudent = async (req, res) => {
   try {
     const { id } = req.params;
@@ -34,11 +32,9 @@ export const getStudent = async (req, res) => {
   }
 };
 
-// POST /api/students
 export const addStudent = async (req, res) => {
   try {
     const { name, major, age } = req.body;
-    // Pengecekan sederhana agar data tidak kosong
     if (!name || !major || !age) {
         return res.status(400).json({ message: 'Name, major, and age are required.' });
     }
@@ -50,7 +46,6 @@ export const addStudent = async (req, res) => {
   }
 };
 
-// PUT /api/students/:id
 export const editStudent = async (req, res) => {
   try {
     const { id } = req.params;
@@ -70,7 +65,6 @@ export const editStudent = async (req, res) => {
   }
 };
 
-// DELETE /api/students/:id
 export const removeStudent = async (req, res) => {
   try {
     const { id } = req.params;
